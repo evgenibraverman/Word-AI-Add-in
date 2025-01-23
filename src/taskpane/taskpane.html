@@ -108,7 +108,10 @@
         <!-- Use Whole Document Toggle -->
         <div class="form-check form-switch mb-3">
             <input class="form-check-input" type="checkbox" id="useWholeDocument" />
-            <label class="form-check-label" for="useWholeDocument">Use the Whole Document</label>
+            <label class="form-check-label" for="useWholeDocument">
+                Use the Whole Document
+                <span data-bs-toggle="tooltip" data-bs-placement="top" title="This may cause high API token consumption." class="bi bi-info-circle" style="cursor: pointer; margin-left: 5px; color: red;"></span>
+            </label>
         </div>
 
         <!-- Prompt Input -->
@@ -163,6 +166,7 @@
                                 <option value="casual writing">Casual Writing</option>
                                 <option value="shakespeare">Shakespeare</option>
                                 <option value="italian mafia">Italian Mafia</option>
+                                <option value="graduate student">Graduate Student</option>
                             </select>
                         </div>
                     </div>

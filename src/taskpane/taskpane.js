@@ -3,16 +3,22 @@ if (!window.addinInitialized) {
     window.addinInitialized = true; // Prevent duplicate initialization
     console.log("Initializing add-in...");
 
-    Office.onReady(() => {
-        console.log("Office is ready");
-        initializeEventListeners();
+    Office.onReady((info) => {
+        if (info.host === Office.HostType.Outlook) {
+            // Initialize Outlook-specific code here
+        } else if (info.host === Office.HostType.Word) {
+            // Initialize Word-specific code here
+            console.log("Office is ready");
+            initializeEventListeners();
 
-        // Load settings
-        const savedApiKey = localStorage.getItem("openaiApiKey");
-        if (savedApiKey) {
-            apiKey = savedApiKey;
-            console.log("API Key loaded from local storage.");
+            // Load settings
+            const savedApiKey = localStorage.getItem("openaiApiKey");
+            if (savedApiKey) {
+                apiKey = savedApiKey;
+                console.log("API Key loaded from local storage.");
+            }
         }
+        // Add other host checks as needed
     });
 } else {
     console.log("Add-in already initialized. Skipping initialization.");
@@ -269,3 +275,11 @@ function copyToClipboard() {
         showToast("Failed to copy text to clipboard.");
     });
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Initialize Bootstrap tooltips
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+});
