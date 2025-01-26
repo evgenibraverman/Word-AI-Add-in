@@ -5,19 +5,18 @@
   <ProviderName>EB</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="AI Assistant"/>
-  <Description DefaultValue="Your personal assiastant for perect document."/>
-  <IconUrl DefaultValue="https://www.example.com/assets/icon-32.png"/>
-  <HighResolutionIconUrl DefaultValue="https://www.example.com/assets/icon-64.png"/>
+  <Description DefaultValue="Your personal assistant for perfect document."/>
+  <IconUrl DefaultValue="http://localhost:3000/assets/icon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="http://localhost:3000/assets/icon-64.png"/>
   <SupportUrl DefaultValue="https://www.contoso.com/help"/>
   <AppDomains>
-    <AppDomain>https://www.contoso.com</AppDomain>
+    <AppDomain>http://localhost:3000</AppDomain>
   </AppDomains>
   <Hosts>
     <Host Name="Document"/>
-    <Host Name="MailHost"/>
   </Hosts>
   <DefaultSettings>
-    <SourceLocation DefaultValue="https://evgenibraverman.github.io/Word-AI-Add-in/taskpane.html"/>
+    <SourceLocation DefaultValue="http://localhost:3000/taskpane.html"/>
   </DefaultSettings>
   <Permissions>ReadWriteDocument</Permissions>
   <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
@@ -60,45 +59,17 @@
           </ExtensionPoint>
         </DesktopFormFactor>
       </Host>
-      <Host xsi:type="MailHost">
-        <DesktopFormFactor>
-          <FunctionFile resid="Commands.Url"/>
-          <ExtensionPoint xsi:type="MessageReadCommandSurface">
-            <OfficeTab id="TabDefault">
-              <Group id="CommandsGroup">
-                <Label resid="CommandsGroup.Label"/>
-                <Control xsi:type="Button" id="TaskpaneButton">
-                  <Label resid="TaskpaneButton.Label"/>
-                  <Supertip>
-                    <Title resid="TaskpaneButton.Label"/>
-                    <Description resid="TaskpaneButton.Tooltip"/>
-                  </Supertip>
-                  <Icon>
-                    <bt:Image size="16" resid="Icon.16x16"/>
-                    <bt:Image size="32" resid="Icon.32x32"/>
-                    <bt:Image size="80" resid="Icon.80x80"/>
-                  </Icon>
-                  <Action xsi:type="ShowTaskpane">
-                    <TaskpaneId>ButtonId1</TaskpaneId>
-                    <SourceLocation resid="Taskpane.Url"/>
-                  </Action>
-                </Control>
-              </Group>
-            </OfficeTab>
-          </ExtensionPoint>
-        </DesktopFormFactor>
-      </Host>
     </Hosts>
     <Resources>
       <bt:Images>
-        <bt:Image id="Icon.16x16" DefaultValue="https://evgenibraverman.github.io/Word-AI-Add-in/assets/icon-16.png"/>
-        <bt:Image id="Icon.32x32" DefaultValue="https://evgenibraverman.github.io/Word-AI-Add-in/assets/icon-32.png"/>
-        <bt:Image id="Icon.80x80" DefaultValue="https://evgenibraverman.github.io/Word-AI-Add-in/assets/icon-80.png"/>
+        <bt:Image id="Icon.16x16" DefaultValue="http://localhost:3000/assets/icon-16.png"/>
+        <bt:Image id="Icon.32x32" DefaultValue="http://localhost:3000/assets/icon-32.png"/>
+        <bt:Image id="Icon.80x80" DefaultValue="http://localhost:3000/assets/icon-80.png"/>
       </bt:Images>
       <bt:Urls>
         <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812"/>
-        <bt:Url id="Commands.Url" DefaultValue="https://www.example.com/commands.html"/>
-        <bt:Url id="Taskpane.Url" DefaultValue="https://www.example.com/taskpane.html"/>
+        <bt:Url id="Commands.Url" DefaultValue="http://localhost:3000/commands.html"/>
+        <bt:Url id="Taskpane.Url" DefaultValue="http://localhost:3000/taskpane.html"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="GetStarted.Title" DefaultValue="Get started with your sample add-in!"/>
